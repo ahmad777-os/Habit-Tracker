@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ritual — Habit Tracker</title>
+
+<!-- PWA: manifest + theme -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2f6e51">
+<meta name="description" content="A calm, focused habit tracker to help you build rituals that stick.">
+
+<!-- PWA: icons -->
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+<!-- PWA: iOS standalone support -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ritual">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 12 L12 22 L4 12 Z"/></svg></span>
+      <span class="brand-name">Ritual</span>
+      <button class="icon-btn sidebar-collapse-btn" id="sidebarToggle" aria-label="Collapse sidebar"></button>
+    </div>
+    <nav id="sidebarNav" class="sidebar-nav"></nav>
+    <div class="sidebar-footer">
+      <div id="sidebarLevel" class="level-widget"></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="search-wrap">
+        <span class="search-icon"></span>
+        <input type="text" id="globalSearch" placeholder="Search habits… (Ctrl+F)">
+      </div>
+      <button class="install-btn hidden" id="installBtn" aria-label="Install app">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        <span>Install App</span>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode"></button>
+    </header>
+    <div class="content" id="mainContent"></div>
+  </main>
+
+  <button class="fab" id="fabAdd" aria-label="Add new habit"></button>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox"></div>
+</div>
+
+<div id="toastContainer" class="toast-container"></div>
+<canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+<script src="js/icons.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/dateutils.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+<script src="js/pwa.js"></script>
+</body>
+</html>

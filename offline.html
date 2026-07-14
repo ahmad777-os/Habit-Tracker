@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2f6e51">
+<title>You're offline — Ritual</title>
+<style>
+  :root {
+    --bg: #f7f8f4;
+    --surface: #ffffff;
+    --accent: #2f6e51;
+    --text: #1c1f1a;
+    --text-muted: #6b7268;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10130f;
+      --surface: #171b15;
+      --text: #eef1ea;
+      --text-muted: #98a092;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    padding: 24px;
+  }
+  .card {
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  }
+  .mark {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    border-radius: 16px;
+    color: #fff;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0 0 24px;
+  }
+  button {
+    appearance: none;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 12px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+  button:hover { opacity: 0.9; transform: translateY(-1px); }
+  button:active { transform: translateY(0); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L20 12 L12 22 L4 12 Z"/></svg>
+    </div>
+    <h1>You're offline</h1>
+    <p>It looks like there's no internet connection right now. Check your connection and try again — your habits will be waiting.</p>
+    <button id="retryBtn">Retry</button>
+  </div>
+
+  <script>
+    document.getElementById('retryBtn').addEventListener('click', () => {
+      window.location.reload();
+    });
+    // Auto-retry once the browser detects the connection is back
+    window.addEventListener('online', () => window.location.reload());
+  </script>
+</body>
+</html>
